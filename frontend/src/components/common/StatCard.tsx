@@ -37,7 +37,8 @@ export function StatCard({ label, value, helper, icon, accent = '#0f766e', value
           {loading ? (
             <Skeleton width={110} height={38} />
           ) : (
-            <Typography variant="h5" noWrap sx={{ color: valueColor }}>
+            // Long text values (a category name, say) wrap onto a second line instead of being cut off.
+            <Typography variant="h5" title={value} sx={{ color: valueColor, lineHeight: 1.25, overflowWrap: 'anywhere' }}>
               {value}
             </Typography>
           )}
