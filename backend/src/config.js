@@ -21,7 +21,7 @@ export const config = {
   jwtSecret: process.env.JWT_SECRET || 'dev-only-secret-change-me',
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
   // Comma separated list of origins allowed to call the API from a browser.
-  clientOrigins: (process.env.CLIENT_URL || 'http://localhost:5173')
+  clientOrigins: (process.env.CLIENT_URL || 'http://localhost:5173,http://127.0.0.1:5173')
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean),

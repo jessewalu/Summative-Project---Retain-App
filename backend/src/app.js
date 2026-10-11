@@ -26,8 +26,9 @@ export function createApp() {
     cors({
       origin(origin, callback) {
         // No Origin header means a non-browser client (curl, health checks), let it through.
-        if (!origin || config.clientOrigins.includes(origin)) return callback(null, true);
-        callback(new Error(`Origin ${origin} is not allowed by CORS`));
+        // For an unknown origin we simply leave the CORS headers off: the browser then blocks
+        // the response by itself, and the API does not log a scary 500 for what is a normal refusal.
+        callback(null, !origin || config.clientOrigins.includes(origin));
       },
     })
   );
