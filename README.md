@@ -165,4 +165,4 @@ The schema is in `backend/src/setup.js`.
 
 ## app link
 
-[!(https://retain-ruddy.vercel.app)]
+https://retain-ruddy.vercel.app
